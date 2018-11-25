@@ -8,4 +8,5 @@ Cet espace est dédié au projet Diplomatie. Celui est constitué de deux dossie
 3. Définition des règles permettant de détecter les différentes entités qui constituent le corpus (dépêches, annotations, dates, etc.)
 4. Analyse statistique des entités extraites
 
-![Une nuit pour sauver Paris](images/diplomatie.jpg =250x)
+
+<img src="images/diplomatie.jpg" width="200">
