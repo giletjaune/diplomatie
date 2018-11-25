@@ -5,4 +5,4 @@ Cet espace est dédié au projet Diplomatie. Celui est constitué de deux dossie
 * Un dossier **"pro"** dans lequel sera entreposé une application bout en bout qui remplira les missions suivantes : récupération des données, structuration des données, extraction d'entités, et analyse.
 
 
-<img src="images/diplomatie.jpg" width="500">
+<img src="images/diplomatie_funny.jpg" width="500">
