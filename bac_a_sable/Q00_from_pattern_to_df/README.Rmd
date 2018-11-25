@@ -19,9 +19,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## II. Data and Libraries
 
-```{r}
+```{r, message=F, warning=F}
+# Import libraries
 library(stringr)
-library(knitr)
+library(knitr) # Not necessary
+
 monlivre = list()
 monlivre[["page_01"]] = c("Je suis pas très chaud d'aller à la manifestation.",
                           "J'aime bien ce que fait Zemmour.",

@@ -17,18 +17,10 @@ II. Data and Libraries
 ----------------------
 
 ``` r
+# Import libraries
 library(stringr)
-```
+library(knitr) # Not necessary
 
-    ## Warning: package 'stringr' was built under R version 3.3.3
-
-``` r
-library(knitr)
-```
-
-    ## Warning: package 'knitr' was built under R version 3.3.2
-
-``` r
 monlivre = list()
 monlivre[["page_01"]] = c("Je suis pas très chaud d'aller à la manifestation.",
                           "J'aime bien ce que fait Zemmour.",
