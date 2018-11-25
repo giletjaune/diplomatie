@@ -63,6 +63,7 @@ split_vector_from_positions=function(document,starting_index){
 # d'une dépêche
 # OUTPUT : un vecteur de taille égal au vecteur de départ contenant TRUE ou FALSE
 # En fonction de si ce paragraphe marque le début d'une dépêche ou non
+
 detect_starting_depeche=function(vecteur_de_paragraphes,pattern){
   
   solution = str_detect(vecteur_de_paragraphes,pattern)
@@ -79,6 +80,7 @@ detect_starting_depeche=function(vecteur_de_paragraphes,pattern){
 # OUTPUT : Stacking des valeurs de la liste dans un dataframe
 # Une colonne high granularite ID qui représente l'ID du "tiroir" le plus haut dans la hierarchie
 # Une colonne low granularite ID qui représente l'ID de l'élément le plus bas dans la hiérarchie 
+
 from_list_to_dataframe=function(maliste){
   
   ids = names(unlist(maliste))
@@ -96,11 +98,15 @@ from_list_to_dataframe=function(maliste){
 ## IV. Tests des petites fonctions
 ```{r}
 # Test 1 : split_vector_from_positions
+
 document = c(44,22,6,7,9,11,33,1,5,3,185,2)
 starting_index = c(1,5,7)
 split_vector_from_positions(document,starting_index)
 
+
+
 # Test 2 : detect_starting_depeche
+
 vecteur_de_paragraphes = c("salutr tu vais, bien",
                            "Oui je vais bien et toi",
                            "Je suis chaud")
@@ -118,6 +124,7 @@ Maintenant qu'on a nos petites fonctions, on construit une espèce de fonction _
 # INPUT : une regex permettant de détecter un paragraphe marquant le début d'une dépêche
 # OUTPUT : un dataframe dans lequel une ligne correspond à un paragraphe. Chaque paragraphe
 # étant mappé vers l'id d'une page et l'id d'une dépêche
+
 convert_une_liste_de_pages_en_dataframe_de_depeches = function(maliste,
                                                                pattern_to_detect_starting_depeche){
   mesparagraphes = unlist(maliste)
