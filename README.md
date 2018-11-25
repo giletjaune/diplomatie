@@ -9,4 +9,4 @@ Cet espace est dédié au projet Diplomatie. Celui est constitué de deux dossie
 4. Analyse statistique des entités extraites
 
 
-<img src="images/diplomatie.jpg" width="200">
+<img src="images/diplomatie.jpg" width="500">
