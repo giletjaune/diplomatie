@@ -1,20 +1,17 @@
-Passer d'un pattern début de dépêche à une liste de dépêches
+D'une liste de pages à un dataframe de dépêches
 ================
 
 I. Objectif
 -----------
 
-#### INPUT
-
--   Un document représentée par une liste de pages. Chaque page comprenant un vecteur de paragraphes.
--   Un pattern représentant le début d'une dépêche OUI / NON
-
-#### OUTPUT
-
--   Une liste de dépêches avec le numero de pages en meta données.
+-   INPUT : Un document représentée par une liste de pages. Chaque page comprenant un vecteur de paragraphes.
+-   INPUT : Un pattern représentant le début d'une dépêche OUI / NON
+-   OUTPUT : Une liste de dépêches avec le numero de pages en meta données.
 
 II. Data and Libraries
 ----------------------
+
+On importe les librairies appropriées. La librairie `knitr` n'est utile pour constuire la page html que tu es en train de lire. On se construit un petit toy dataset pour tester notre fonction finale.
 
 ``` r
 # Import libraries
@@ -26,25 +23,14 @@ monlivre[["page_01"]] = c("Je suis pas très chaud d'aller à la manifestation."
                           "J'aime bien ce que fait Zemmour.",
                           "Apparemment, je ne suis pas convaincu")
 monlivre[["page_02"]] = c("Les data scientists sont de plus en plus nombreux.",
-                          "Jamais dans l'histoire de l'humanité, autant de documents n'ont été produits sans être lus.",
+                          "Jamais dans l'histoire de l'humanité, autant de documents n'ont été produits.",
                           "Les mauvais artistes pillent, les meilleurs copient")
-monlivre
 ```
-
-    ## $page_01
-    ## [1] "Je suis pas très chaud d'aller à la manifestation."
-    ## [2] "J'aime bien ce que fait Zemmour."                  
-    ## [3] "Apparemment, je ne suis pas convaincu"             
-    ## 
-    ## $page_02
-    ## [1] "Les data scientists sont de plus en plus nombreux."                                         
-    ## [2] "Jamais dans l'histoire de l'humanité, autant de documents n'ont été produits sans être lus."
-    ## [3] "Les mauvais artistes pillent, les meilleurs copient"
 
 III. Les fonctions
 ------------------
 
-Afin d'e résoudre d'atteindre notre objectifs, on définit des fonctions qui vont accomplire des petites tâches bien précises.
+Afin d'atteindre notre objectif, on définit des fonctions qui vont accomplire des petites tâches bien précises.
 
 #### Fonction split\_vector\_from\_positions
 
@@ -60,7 +46,6 @@ split_vector_from_positions=function(document,starting_index){
   solution = split(x = document,f = depeche_factor)
   
   return(solution)
-  
 }
 ```
 
@@ -78,7 +63,6 @@ detect_starting_depeche=function(vecteur_de_paragraphes,pattern){
   solution = str_detect(vecteur_de_paragraphes,pattern)
   
   return(solution)
-  
 }
 # C'est une réecriture de la fonction str_detect mais ça permet d'expliquer la démarche générale.
 ```
@@ -103,40 +87,8 @@ from_list_to_dataframe=function(maliste){
 }
 ```
 
-IV. Tests des petites fonctions
--------------------------------
-
-``` r
-# Test 1 : split_vector_from_positions
-
-document = c(44,22,6,7,9,11,33,1,5,3,185,2)
-starting_index = c(1,5,7)
-split_vector_from_positions(document,starting_index)
-```
-
-    ## $`1`
-    ## [1] 44 22  6  7
-    ## 
-    ## $`2`
-    ## [1]  9 11
-    ## 
-    ## $`3`
-    ## [1]  33   1   5   3 185   2
-
-``` r
-# Test 2 : detect_starting_depeche
-
-vecteur_de_paragraphes = c("salutr tu vais, bien",
-                           "Oui je vais bien et toi",
-                           "Je suis chaud")
-pattern = "^[A-Z]"
-detect_starting_depeche(vecteur_de_paragraphes,pattern)
-```
-
-    ## [1] FALSE  TRUE  TRUE
-
-V. Putting it all together
---------------------------
+IV. Putting it all together
+---------------------------
 
 #### La fonction maestro
 
@@ -168,11 +120,11 @@ p = "^J"
 final_solution = convert_une_liste_de_pages_en_dataframe_de_depeches(monlivre,p)
 ```
 
-| id\_depeche | id\_paragraphe | paragraphe                                                                                  |
-|:------------|:---------------|:--------------------------------------------------------------------------------------------|
-| 1           | page\_011      | Je suis pas très chaud d'aller à la manifestation.                                          |
-| 2           | page\_012      | J'aime bien ce que fait Zemmour.                                                            |
-| 2           | page\_013      | Apparemment, je ne suis pas convaincu                                                       |
-| 2           | page\_021      | Les data scientists sont de plus en plus nombreux.                                          |
-| 3           | page\_022      | Jamais dans l'histoire de l'humanité, autant de documents n'ont été produits sans être lus. |
-| 3           | page\_023      | Les mauvais artistes pillent, les meilleurs copient                                         |
+| id\_depeche | id\_paragraphe | paragraphe                                                                    |
+|:------------|:---------------|:------------------------------------------------------------------------------|
+| 1           | page\_011      | Je suis pas très chaud d'aller à la manifestation.                            |
+| 2           | page\_012      | J'aime bien ce que fait Zemmour.                                              |
+| 2           | page\_013      | Apparemment, je ne suis pas convaincu                                         |
+| 2           | page\_021      | Les data scientists sont de plus en plus nombreux.                            |
+| 3           | page\_022      | Jamais dans l'histoire de l'humanité, autant de documents n'ont été produits. |
+| 3           | page\_023      | Les mauvais artistes pillent, les meilleurs copient                           |
