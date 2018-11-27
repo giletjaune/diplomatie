@@ -3,7 +3,10 @@ Récupération des données (API Gallica)
 
 #### Objectif
 
-L'objectif est de récupérer l'ensemble des tomes sur lesquels on souhaite travailler sous forme d'une liste de tomes. L'execution du script `main.R` permet de réaliser l'objectif. \* Un tome est une liste de pages. \* Une page est un vecteur de paragraphes.
+L'objectif est de récupérer l'ensemble des tomes sur lesquels on souhaite travailler sous forme d'une liste de tomes. L'execution du script `main.R` permet de réaliser l'objectif
+
+-   Un tome est une liste de pages
+-   Une page est un vecteur de paragraphes
 
 #### Paramètres
 
