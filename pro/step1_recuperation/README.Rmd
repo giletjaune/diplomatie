@@ -16,8 +16,8 @@ L'objectif est de récupérer l'ensemble des tomes sur lesquels on souhaite trav
 
 #### Paramètres
 
-L'unique paramètre est le vecteur `PARAM_urls`. Il contient les requêtes à l'API Gallica. Il est défini dans _/config/parameters_. Le vecteur doit être nommé. Les noms doivent représentent le nom des tomes associés à chacune des requêtes. 
+L'unique paramètre est le vecteur `PARAM_urls`. Il contient les requêtes à l'API Gallica. Il est défini dans **_/config/parameters_**. Le vecteur doit être nommé. Les noms doivent représentent le nom des tomes associés à chacune des requêtes. 
 
 
 #### Sauvegarde
-La liste de tomes récupérée est sauvée dans le dossier _/data_ sous le nom `DATA_the_book.rds`
+La liste de tomes récupérée est sauvée dans le dossier **_/data_** sous le nom `DATA_the_book.rds`
