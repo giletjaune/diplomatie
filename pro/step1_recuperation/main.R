@@ -22,4 +22,4 @@ DATA_the_book = FUN_multiple_requests_to_gallica_api(PARAM_urls)
 
 
 # * * * Sauvegarde * * *
-saveRDS(object = DATA_the_book,file = paste0(FOLDER_position,"/data/DATA_the_book.rds"))
+saveRDS(object = DATA_the_book,file = paste0(FOLDER_position,"/data/DATA_the_book_list.rds"))
