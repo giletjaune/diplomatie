@@ -1,1 +1,1 @@
-<img src="images/pageidsmall.png" width="800">
+<img src="images/pageidsmall.png" width="1000">
