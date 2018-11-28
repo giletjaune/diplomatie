@@ -15,7 +15,14 @@ L'unique paramètre est le vecteur `PARAM_urls`. Il contient les requêtes à l'
 ``` r
 PARAM_urls = c("https://gallica.bnf.fr/ark:/12148/bpt6k96718891.texteBrut",
                "https://gallica.bnf.fr/ark:/945221/gfrt6kfrer64.texteBrut")
+names(PARAM_urls) = paste0("Tome ",as.character(as.roman(seq(1,length(PARAM_urls)))))
+PARAM_urls
 ```
+
+    ##                                                      Tome I 
+    ## "https://gallica.bnf.fr/ark:/12148/bpt6k96718891.texteBrut" 
+    ##                                                     Tome II 
+    ## "https://gallica.bnf.fr/ark:/945221/gfrt6kfrer64.texteBrut"
 
 #### Sauvegarde
 
