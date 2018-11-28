@@ -1,13 +1,12 @@
 # parameters
 
-
-# CORRECTION PARAMETERS * * * * * * 
+# Initialisation (automatic) 
 PARAM_correction_dataframe_list = list()
 PARAM_pdf_latin_pagination = list()
 TEMP_tome_names = names(DATA_the_book)
 
 
-# TOME I
+# Parameters a renseigner : * * * * * * * * * * * * * * * * * * * * * * * *  
 PARAM_correction_dataframe_list[[TEMP_tome_names[1]]] = data.frame("tome_id" = TEMP_tome_names[1],
                                                                    "page_id_pdf_correction" = -1,
                                                                    "page_id_document_correction" = -31,
@@ -22,5 +21,8 @@ PARAM_correction_dataframe_list[[TEMP_tome_names[1]]] = data.frame("tome_id" = T
 # ...
 # ... 
 
-# Convert to dataframes
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
+
+
+# Convert list to dataframe (automatic)
 PARAM_correction_dataframe = do.call("rbind",PARAM_correction_dataframe_list)
