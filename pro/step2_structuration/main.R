@@ -37,6 +37,9 @@ DATA_the_book_df = DATA_the_book_df[,c("tome_id",
                                        "page_id_document")]
 
 
+# * * * Sauvegarde * * *
+saveRDS(object = DATA_the_book_df,file = paste0(FOLDER_position,"/data/DATA_the_book_df.rds"))
+
 
 
 
