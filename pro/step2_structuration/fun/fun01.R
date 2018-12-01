@@ -8,7 +8,13 @@ FUN_single_tome_list_to_dataframe = function(untome,tomename){
   pagename_vector = rep(x = names(nparagraph_by_pagename),nparagraph_by_pagename)
   sentence_vector = unlist(lapply(nparagraph_by_pagename,seq_len),use.names = FALSE)
   paragraph_vector = unlist(untome)
-  tomedf = data.frame("tome_id" = tomename,
+  
+  the_tome_name = strsplit(x = tomename,split = "***",fixed = T)[[1]][1]
+  the_url_name = strsplit(x = tomename,split = "***",fixed = T)[[1]][2]
+  the_url_name = gsub(pattern =".texteBrut",replacement ="" ,x =the_url_name ,fixed = TRUE)
+  
+  tomedf = data.frame("tome_id" = the_tome_name,
+                      "url_id" = the_url_name,
                       "page_id" = pagename_vector,
                       "paragraph_id" = sentence_vector,
                       "paragraph_value" = paragraph_vector,

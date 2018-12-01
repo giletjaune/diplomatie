@@ -3,7 +3,7 @@
 # Initialisation (automatic) 
 PARAM_correction_dataframe_list = list()
 PARAM_pdf_latin_pagination = list()
-TEMP_tome_names = names(DATA_the_book)
+TEMP_tome_names = strsplit(x = names(DATA_the_book),split = "***",fixed = T)[[1]][1]
 
 
 # Parameters a renseigner : * * * * * * * * * * * * * * * * * * * * * * * *  

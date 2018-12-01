@@ -1,0 +1,12 @@
+name: corpusregex
+title: corpusregex
+username:
+account: snak
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 599074
+bundleId: 1732721
+url: https://snak.shinyapps.io/corpusregex/
+when: 1543665592.472
+asMultiple: FALSE
+asStatic: FALSE

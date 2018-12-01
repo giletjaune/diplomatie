@@ -30,12 +30,15 @@ DATA_the_book_df = FUN_multiple_tome_list_to_dataframe(list_of_tomes = DATA_the_
 DATA_the_book_df = FUN_correction_page_arab_id(DATA_the_book_df,PARAM_correction_dataframe)
 DATA_the_book_df = FUN_correction_page_latin_id(DATA_the_book_df,PARAM_correction_dataframe)
 DATA_the_book_df = DATA_the_book_df[,c("tome_id",
+                                       "url_id",
                                        "page_id",
                                        "paragraph_id",
                                        "paragraph_value",
                                        "page_id_pdf",
                                        "page_id_document")]
-
+DATA_the_book_df$url_id = paste0(DATA_the_book_df$url_id,"/f",DATA_the_book_df$page_id_pdf,".image")
+DATA_the_book_df$url = DATA_the_book_df$url_id
+DATA_the_book_df$url_id = NULL
 
 # * * * Sauvegarde * * *
 saveRDS(object = DATA_the_book_df,file = paste0(FOLDER_position,"/data/DATA_the_book_df.rds"))
