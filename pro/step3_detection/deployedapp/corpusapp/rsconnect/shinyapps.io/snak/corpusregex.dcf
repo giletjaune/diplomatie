@@ -5,8 +5,8 @@ account: snak
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 599074
-bundleId: 1732721
+bundleId: 1732922
 url: https://snak.shinyapps.io/corpusregex/
-when: 1543665592.472
+when: 1543679170.386
 asMultiple: FALSE
 asStatic: FALSE

@@ -1,3 +1,4 @@
+# On clear la work, on load les librairies, les données et les functions
 rm(list=ls())
 source(file = "packages.R",encoding = "UTF-8")
 source(file = "config.R",encoding = "UTF-8")
@@ -11,22 +12,22 @@ ui <- dashboardPage(
   dashboardHeader(title = "Dashboard"),
   
   # le DASHBOARD SIDEBAR
+  
   dashboardSidebar(
     
-    
-    # les options sidebar
+    # Quelques options inutiles
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
     ),
     
+    # * * * Définition des onglets * * * 
     sidebarMenu(
       menuItem("Explore Corpus", tabName = "ONGLET_draft", icon = icon("plane")),
       menuItem("Explore features", tabName = "ONGLET_offset", icon = icon("plane")),
 
       
       
-      #INPUT SELECTOR DE IDs, selected_id
-      
+      # * * * Définition des inputs * * * 
       textInput("selected_regex",
                 "Enter a regex",
                 value = "[A-Z]"),
@@ -53,7 +54,7 @@ ui <- dashboardPage(
   # LE DASHBOARD BODY
   dashboardBody(
     
-    # Les styles
+    # On rajoute avec des style pr rendre le truc cool
     tags$style(type="text/css",
                ".shiny-output-error { visibility: hidden; }",
                ".shiny-output-error:before { visibility: hidden; }"
@@ -62,7 +63,9 @@ ui <- dashboardPage(
     
     tabItems(
 
-      # Debut onglet draft
+      
+      
+      # * * * Debut du 1er onglet * * * 
       tabItem(
         tabName = "ONGLET_draft",
         
@@ -78,10 +81,13 @@ ui <- dashboardPage(
             div(style = 'height: 70vh; overflow-y: auto;', htmlOutput("formattedText"))
           )
         )
-      ), # FIN ONGLET draft
+      ), # * * * Fin du premier onglet * * *
       
       
-      # Debut onglet offset
+      
+      
+      
+      # * * * Debut du 2nd onlet * * * 
       tabItem(
         tabName = "ONGLET_offset",
         
@@ -98,7 +104,11 @@ ui <- dashboardPage(
               
             )
         )
-      ) # FIN ONGLET OFFSET
+      ) # * * * Fin du second onglet * * * 
+      
+      
+      
+      
 
     ) # fin de tabitems global
     ) # fin dashboard body

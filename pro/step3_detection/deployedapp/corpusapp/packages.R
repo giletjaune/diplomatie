@@ -1,4 +1,4 @@
-# packages
+# Packages
 library(shiny)
 library(shinydashboard)
 library(stringr)
