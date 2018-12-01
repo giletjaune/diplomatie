@@ -1,0 +1,22 @@
+Guide d'utilisation
+================
+
+#### Overall
+
+L'application sert à parcourir le corpus téléchargé depuis l'API Gallica. Elle permet également de définir un filtre afin de ne sélectionner que certains paragraphes. Elle permet également de surligner les passages des paragraphes filtrés qui matchent avec une regex définie par l'utilisateur. D'autre part, elle fait le lien entre les données récupérées et le document original OCRisé.
+
+#### Fonction Regex
+
+L'utilisateur peut renseigner une regex dans le champ **regex**. Cette regex ne s'appliquera qu'aux paragraphes sélectionnés par le filtre. En guise de pense-bête :
+
+-   [les antisèches du package stringr](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
+-   [les antisèches regex de rstudio](https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+
+#### Fonction Filtre
+
+L'utilisateur peut ne vouloir sélectionner que des paragraphes particuliers sur lesquels appliquer la regex. Il peut dans ce cas renseigner le champ **filtre**. Ce champ doit représenter une commande R permettant la création d'un vecteur booléen. La création de ce vecteur impliquera la plupart du temps une ou des colonnes du dataframe `df` contenant le corpus. Par exemple, si je veux ne sélectionner que les paragraphes dont le nombre de caractères est supérieur à 100 alors je renseigne dans le champ **filtre** la commande R suivante `nchar(df$paragraph_value)>100`. Les paragraphes qui sont exclus par ce vecteur booléen apparaîteront en grisée et l'éventuelle regex ne leur sera pas appliquée.
+
+IMPORTANT
+---------
+
+La prise en compte du filtre et de la regex n'est pas dynamique, tu dois cliquer sur le boutton **build** pour appliquer tes changements.

@@ -26,6 +26,14 @@ shinyServer(function(input, output, session) {
   })
   
   
+  output$pdfview <- renderUI({
+    tags$iframe(style="height:600px; width:100%", src="rstudio.pdf")
+  })
+  
+  output$pdfview2 <- renderUI({
+    tags$iframe(style="height:600px; width:100%", src="strings.pdf")
+  })
+  
 })
 
 

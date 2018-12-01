@@ -9,7 +9,7 @@ ui <- dashboardPage(
   skin = "blue",
   
   # le DASHBOARD HEADER
-  dashboardHeader(title = "Dashboard"),
+  dashboardHeader(title = "Regex Explorer"),
   
   # le DASHBOARD SIDEBAR
   
@@ -22,8 +22,9 @@ ui <- dashboardPage(
     
     # * * * Définition des onglets * * * 
     sidebarMenu(
-      menuItem("Explore Corpus", tabName = "ONGLET_draft", icon = icon("plane")),
-      menuItem("Explore features", tabName = "ONGLET_offset", icon = icon("plane")),
+      menuItem("Explore Corpus", tabName = "ONGLET_draft",icon = icon("book")),
+      menuItem("Explore Features", tabName = "ONGLET_offset", icon = icon("table")),
+      menuItem("Aide", tabName = "ONGLET_help", icon = icon("info")),
 
       
       
@@ -40,7 +41,7 @@ ui <- dashboardPage(
       
       selectInput(
         inputId = "selected_page_id",
-        label = "Page", 
+        label = "Go to", 
         choices = unique(df$page_id_document),
         selected = "1",
         selectize = TRUE
@@ -98,13 +99,65 @@ ui <- dashboardPage(
               collapsed = FALSE,
               solidHeader = TRUE,
               status = "primary",
-              title="Explore features",
+              title="Explore Features",
               width=12,
               div(style = 'overflow-x: auto;', dataTableOutput("mytable"))
               
             )
+
         )
-      ) # * * * Fin du second onglet * * * 
+      ), # * * * Fin du second onglet * * * 
+      
+      
+      
+      
+      
+      
+      # * * * Debut du 3e onlet * * * 
+      tabItem(
+        tabName = "ONGLET_help",
+        
+        # ROW 1 - Onglet offset
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            solidHeader = TRUE,
+            status = "primary",
+            title="Aide",
+            width=12,
+            includeMarkdown("help.md")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            solidHeader = TRUE,
+            status = "primary",
+            title="Stringr Antisèche",
+            width=12,
+            uiOutput("pdfview2")
+          )
+        ),
+        fluidRow(
+          box(
+            collapsible = TRUE,
+            collapsed = FALSE,
+            solidHeader = TRUE,
+            status = "primary",
+            title="Rstudio Regex Antisèche",
+            width=12,
+            uiOutput("pdfview")
+          )
+        )
+      ) # * * * Fin du 3e onglet * * * 
+      
+      
+      
+      
+      
+
       
       
       
