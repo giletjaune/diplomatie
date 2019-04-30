@@ -26,17 +26,13 @@ names(data) = iconv(names(data),from="UTF-8",to="ASCII//TRANSLIT")
 
 ### Main Part
 
-On commence par faire un group by sur toutes les colonnes afin de compter le nombre d'occurences par expéditeur et par colonne. Puis on reshape le résultat. L'output final est le dataframe reshaped\_statistics.
+On commence par faire un group by sur toutes les colonnes afin de compter le nombre d'occurences par expéditeur et par colonne (fonction groupby et summaris\_each). Puis on reshape le résultat (fonction gather). Enfin on trie la table (fonction arrange).
 
 ``` r
-statistics = data %>% 
+weighted_edges = data %>% 
   group_by(exped) %>% 
-  summarise_each(funs(sum))
-
-reshaped_statistics <- statistics %>%
-  gather(key = "mention",
-         value ="f",
-         names(data)[2:ncol(data)]) %>%
+  summarise_each(funs(sum)) %>%
+  gather(key = "mention", value ="f", names(data)[2:ncol(data)]) %>%
   arrange(desc(f))
 ```
 
