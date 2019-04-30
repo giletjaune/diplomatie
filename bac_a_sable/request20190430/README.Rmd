@@ -1,0 +1,43 @@
+---
+title: "D'une matrice à une liste d'edges pondérés"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Load packages & Set meta parameters & load data
+```{r, message=F, warning=F}
+library(dplyr)
+library(tidyr)
+library(knitr) # not necessary
+filename = "questionsergi.RData"
+foldername = "C:/Users/Bar Yokhai/Desktop/projets/Blog/diplomatie/bac_a_sable/request20190430/"
+pathile = paste0(foldername,filename)
+load(file = pathile)
+```
+
+
+### Prepare the data
+```{r, message=F, warning=F}
+data[2:ncol(data)] <- lapply(data[2:ncol(data)], function(x) as.numeric(as.character(x)))
+names(data) = iconv(names(data),from="UTF-8",to="ASCII//TRANSLIT")
+```
+
+
+### Main Part
+```{r, message=F, warning=F}
+statistics = data %>% 
+  group_by(exped) %>% 
+  summarise_each(funs(sum))
+
+reshaped_statistics <- statistics %>%
+  gather(key = "mention",
+         value ="f",
+         names(data)[2:ncol(data)]) %>%
+  arrange(desc(f))
+```
+
+`r kable(head(reshaped_statistics))`
